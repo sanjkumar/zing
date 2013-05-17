@@ -1,0 +1,26 @@
+
+<form accept-charset="UTF-8" action="/sessions" class="sign_in" id="sign_in" method="post">
+
+
+      <div>
+        <label for="email"></label>
+        <input id="email" name="[email]" type="text" size="30"  placeholder="Your Email" />
+      </div>
+      <div>
+        <label for="password"></label>
+        <input id="password" name="[password]" type="password" size="30" placeholder="Password" />
+      </div>
+
+      <div class="Sign_in button">
+        <input type="submit" value="Sign in"/>
+      </div>
+      <div class="keep_login">
+        <input type="checkbox" name="login_keeping" id="login_keeping" value="login_keeping" />
+        <label for="login_keeping">Rememeber me</label>
+      </div>
+  <p>New user? <%= link_to "Sign up now!", new_user_path %>  </p>
+    </form>
+
+
+
+

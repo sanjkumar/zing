@@ -1,0 +1,53 @@
+<h1>Update accounts details</h1>
+
+<%= form_for(@user) do |f| %>
+    <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+          <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <form accept-charset="UTF-8" action="/users" class="new_user" id="new_user" method="post">
+
+      <div class="field">
+        <label for="user_username"></label>
+        <input id="user_username" name="user[username]" size="30" type="text" placeholder="Username" />
+      </div>
+
+      <div class="field">
+        <label for="user_email"></label>
+        <input id="user_email" name="user[email]" type="text" size="30" placeholder="Email" />
+      </div>
+
+      <div class="field">
+        <label for="user_password"></label>
+        <input id="user_password" name="user[password]" size="30" type="password" placeholder="Your Password" />
+      </div>
+
+      <div class="field">
+        <label for="user_password_confirmation"></label>
+        <input id="user_password_confirmation" name="user[password_confirmation]" size="30" type="password"
+               placeholder="Password confirmation" />
+      </div>
+
+      <div class="sign_up button">
+        <input class="btn btn-large btn-primary" name="commit" type="submit" value="update"/>
+      </div>
+
+      <%= gravatar_for @user %>
+      <a href="http://gravatar.com/emails">change</a>
+
+    </form>
+
+<% end %>
+
+
+
+<%= link_to 'Show', @user %> |
+<%= link_to 'Back', user_path %>
