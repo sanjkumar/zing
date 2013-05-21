@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, @user.username) %>
 <div class="row">
   <aside class="span4">
     <section>
@@ -6,12 +6,24 @@
         <%= gravatar_for @user %>
         <%= @user.username %>
       </h1>
-
+    </section>
+    <section>
+      <%= render 'shared/stats' %>
     </section>
   </aside>
+  <div class="span8">
+    <%= render 'follow_form' if signed_in? %>
+    <% if @user.posts.any? %>
+        <h3>Posts (<%= @user.posts.count %>)</h3>
+        <ol class="posts">
+          <%= render @posts %>
+        </ol>
+
+        <%= will_paginate @posts %>
+    <% end %>
+  </div>
 </div>
 
-
-
+ <%= link_to 'Post', new_post_path %>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

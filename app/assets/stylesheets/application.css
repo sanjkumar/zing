@@ -17,7 +17,7 @@
 
 
 body{
-    background-image: url(../images/earth.jpg);
+    background-image: url(//images/earth.jpg);
     background-size: cover;
     margin: 0;
 }
@@ -410,97 +410,58 @@ info-bar ul li {
     float: right;
 }
 
-.nav{
-    font-family: Arial, Verdana,serif;
+#nav {
+    font-family: Arial,Verdana;
+    font-size: 14px;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 6px;
+}
+ul {
+    font-family: Arial, Verdana;
     font-size: 14px;
     margin: 0;
     padding: 0;
-    display: inline;
-    float: right;
     list-style: none;
 }
-
-.nav li {
-    display: inline;
-    font-size: 12px;
-    position: relative;
-    float: left;
-    margin: 5px;
-    text-decoration: none;
-}
-.nav.li ul {
+ul li {
     display: block;
-    font-size: 12px;
     position: relative;
     float: left;
-    margin: 5px;
-    text-decoration: none;
 }
-.nav.ul li a {
+li ul {
+    display: none;
+}
+ul li a {
     display: block;
     text-decoration: none;
     color: #ffffff;
-    border-top: 1px solid #ffffff;
+    border-top: 0px solid #ffffff;
     padding: 5px 15px 5px 15px;
-    background: #1e7c9a;
-    margin-left: 1px;
+    background: #7D9EC0;
+    margin-left: 0px;
     white-space: nowrap;
 }
-.nav.ul li a:hover {
-    background: #f0f0f0;
+ul li a:hover {
+    background: #3b3b3b;
 }
-.nav.li:hover ul {
+li:hover ul {
     display: block;
     position: absolute;
 }
-.nav.li:hover li {
+li:hover li {
     float: none;
     font-size: 11px;
 }
-li:hover a { background: #f0f0f0; }
+li:hover a { background: #3b3b3b; }
 li:hover li a:hover {
-    background: #1e7c9a;
+    background: #7D9EC0;
 }
 
-.users.ul{
-    display: block;
+#profile{
     position: absolute;
-    text-decoration: none;
-    color: #ffffff;
-    border-top: 1px solid #1e7c9a;
-    padding: 5px 15px 5px 15px;
-    margin-left: 1px;
-    white-space: nowrap;
-}
-.users li{
-    display: block;
-    font-size: 15px;
-    position: relative;
-    text-decoration: none;
-    border-top: 1px solid #1e7c9a;
-    border-bottom: 1px solid #1e7c9a;
-}
-.users.ul li a {
-    display: block;
-    text-decoration: none;
-    color: #ffffff;
-    padding: 5px 15px 5px 15px;
-    background: #1e7c9a;
-    margin-left: 1px;
-    white-space: nowrap;
-}
-.users.ul li a:hover {
-    background: #f0f0f0;
-}
-.users.li:hover ul {
-    display: block;
-    position: absolute;
-}
-.users.li:hover li {
-    float: none;
-    font-size: 11px;
-}
-li:hover a { background: #f0f0f0; }
-li:hover li a:hover {
-    background: #1e7c9a;
+    float: right;
+    width: 100px;
 }

@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
-  before_filter :signed_in_user, only: [:index, :edit, :update, :destroy]
+  before_filter :signed_in_user, only: [:index, :edit, :update]
   before_filter :correct_user,   only: [:edit, :update]
-  before_filter :admin_user,     only: :destroy
+  before_filter :admin_user,     only: [:index, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-
+    @posts = @user.posts.paginate(page: params[:page])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }
@@ -87,9 +87,15 @@ class UsersController < ApplicationController
     end
   end
 
+
   private
 
-
+  def signed_in_user
+    unless signed_in?
+      store_location
+      redirect_to log_in_url, notice: "Please sign in."
+    end
+  end
 
   def correct_user
     @user = User.find(params[:id])
@@ -97,8 +103,7 @@ class UsersController < ApplicationController
   end
 
   def admin_user
-    redirect_to root_path unless current_user.admin?
+    redirect_to(root_path) unless current_user.admin?
   end
-
 
 end

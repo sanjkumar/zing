@@ -13,6 +13,8 @@ gem 'faker', '1.0.1'
 gem 'will_paginate', '3.0.3'
 gem "bcrypt-ruby", :require => "bcrypt"
 gem "mail", '2.4.4'
+gem 'bootstrap-sass', '2.3.1'
+gem 'bootstrap-will_paginate'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -30,6 +32,15 @@ gem 'jquery-rails'
 
 group :test do
   gem 'capybara', '1.1.2'
+  gem 'factory_girl_rails'
+  gem 'cucumber-rails', '1.2.1', require: false
+  gem 'database_cleaner'
+  gem 'rb-fsevent', '0.4.3.1', :require => false
+  gem 'growl'
+  gem 'guard-spork'
+  gem 'spork'
+  gem 'launchy'
+  gem 'rspec-rails', '2.0'
 end
 
 # To use ActiveModel has_secure_password
@@ -64,17 +75,3 @@ group :production do
 end
 gem 'jquery-rails'
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'

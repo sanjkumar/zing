@@ -1,19 +1,27 @@
 Zing::Application.routes.draw do
 
-  get 'pages/about'
-  get "pages/home"
-  get "pages/help"
-  get "users/new"
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+
+  resources :posts
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :relationships, only: [:create, :destroy]
+
+  get "pages/about" => "pages#about", :as => "pages/about"
+  get 'pages/home'     => "pages#home", :as => "pages/home"
+  get 'pages/help'
+  get 'users/new'
+  get 'posts/create' => "posts#create", :as => "posts_create"
+  get 'posts/create'
+  get 'posts/destroy'
+  get 'posts/new'
   get 'sessions/new'
 
-
-
-  resources :posts, only: [:create, :destroy]
-  resources :users
-  resources :sessions, only: [:new, :create, :destroy]
-
-  get "log_out" => "sessions#destroy", :as => "log_out"
-  get "log_in" => "sessions#new", :as => "log_in"
+  get "sign_out" => "sessions#destroy", :as => "sign_out"
+  get "sign_in" => "sessions#new", :as => "sign_in"
   get "sign_up" => "users#new", :as => "sign_up"
 
   match '/sign_up',  to: 'users#new'
@@ -71,7 +79,7 @@ Zing::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'users#new'
+   root :to => 'pages#home'
 
   # See how all your routes lay out with "rake routes"
 
